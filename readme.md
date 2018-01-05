@@ -10,7 +10,7 @@
 
 3. [git](https://git-scm.com/downloads) for minGW64(like bash terminal) Or [Mobaxterm](https://mobaxterm.mobatek.net/download.html)
 
-# making working space
+# make working space
 
 ```bash
 # make default workspace
