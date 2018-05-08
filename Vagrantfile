@@ -31,9 +31,13 @@ Vagrant.configure("2") do |config|
   # config.vm.network "forwarded_port", guest: 80, host: 8080
 
   config.vm.network "forwarded_port", guest: 5443, host: 5443
-  for i in 8080..8110
-    config.vm.network :forwarded_port, guest: i, host: i
-  end
+
+  #for DB incoming
+  config.vm.network "forwarded_port", guest: 3066, host: 3066
+
+  # for i in 8080..8110
+  #  config.vm.network :forwarded_port, guest: i, host: i
+  # end
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine and only allow access
@@ -97,7 +101,7 @@ Vagrant.configure("2") do |config|
     source: "~/.ssh/id_rsa.pub", destination: "/home/ubuntu/.ssh/authorized_keys"
   
   config.vm.provision "shell", privileged: false, inline: <<-SHELL
-    chmod 400 ~/.ssh/id_rsa ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys
+    chmod 700 ~/.ssh/id_rsa ~/.ssh/id_rsa.pub ~/.ssh/authorized_keys
   SHELL
   
 end
